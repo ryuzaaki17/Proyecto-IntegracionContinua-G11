@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Laboratorios</title>
+    <link rel="stylesheet" href="Styles/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Agenda tu Laboratorio de Computación</h1>
+    </header>
+
+    <main>
+        <section class="calendario">
+            <h2>Disponibilidad de Laboratorios</h2>
+            <div id="calendar"></div>
+        </section>
+
+        <section class="reserva">
+            <h2>Reserva tu Laboratorio</h2>
+            <form id="formReserva">
+                <label for="nombre">Tu Nombre:</label>
+                <input type="text" id="nombre" required>
+
+                <label for="laboratorio">Laboratorio:</label>
+                <select id="laboratorio" required>
+                    <option value="">Selecciona un laboratorio</option>
+                    <option value="A">Laboratorio A</option>
+                    <option value="B">Laboratorio B</option>
+                </select>
+
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" required>
+
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora" required>
+
+                <button type="submit">Reservar</button>
+            </form>
+            <div id="confirmacion"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Instituto XYZ</p>
+    </footer>
+
+    <script src="JS/script.js"></script>
+</body>
+</html>
