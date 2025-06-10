@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Gestión de Laboratorios</title>
+    <link rel="stylesheet" href="Styles/admin_styles.css">
+</head>
+<body>
+    <header>
+        <h1>Panel de Administración - Gestión de Laboratorios</h1>
+    </header>
+
+    <main>
+        <!-- Gestión de Laboratorios -->
+        <section class="gestion-laboratorios">
+            <h2>Gestión de Laboratorios</h2>
+            <form id="formLab">
+                <label for="nombreLab">Nombre del Laboratorio:</label>
+                <input type="text" id="nombreLab" required>
+
+                <label for="capacidadLab">Capacidad:</label>
+                <input type="number" id="capacidadLab" required>
+
+                <button type="submit">Añadir Laboratorio</button>
+            </form>
+        </section>
+
+        <!-- Gestión de Horarios -->
+        <section class="gestion-horarios">
+            <h2>Gestión de Horarios</h2>
+            <form id="formHorario">
+                <label for="labSeleccionado">Seleccionar Laboratorio:</label>
+                <select id="labSeleccionado" required>
+                    <option value="">Seleccione un laboratorio</option>
+                    <!-- Opciones se llenan dinámicamente -->
+                </select>
+
+                <label for="fechaHorario">Fecha:</label>
+                <input type="date" id="fechaHorario" required>
+
+                <label for="horaInicio">Hora de Inicio:</label>
+                <input type="time" id="horaInicio" required>
+
+                <label for="horaFin">Hora de Fin:</label>
+                <input type="time" id="horaFin" required>
+
+                <button type="submit">Añadir Horario</button>
+            </form>
+        </section>
+
+        <!-- Reservas Realizadas -->
+        <section class="reservas-realizadas">
+            <h2>Reservas Realizadas</h2>
+            <table id="tablaReservas">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Laboratorio</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las reservas se llenan dinámicamente -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Instituto XYZ - Administración</p>
+    </footer>
+
+    <script src="JS/admin_script.js"></script>
+</body>
+</html>

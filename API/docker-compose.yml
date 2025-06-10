@@ -1,0 +1,52 @@
+# Versión del esquema de Docker Compose que se está utilizando
+version: "3.9"
+
+services:
+  # Servicio de la aplicación Flask
+  flask_app:
+    # Nombre del contenedor para facilitar su identificación
+    container_name: flask_app
+    
+    # Imagen a usar para este servicio (si existe localmente o en un registry)
+    image: francescoxx/flask_live_app:1.0.0
+    
+    # Instrucción para construir la imagen desde el Dockerfile en el directorio actual
+    build: .
+    
+    # Mapeo de puertos: el puerto 4000 del host se enlaza al puerto 4000 del contenedor
+    ports:
+      - "4000:4000"
+    
+    # Variables de entorno, en este caso la URL de conexión a la base de datos PostgreSQL
+    environment:
+      - DB_URL=postgresql://postgres:postgres@flask_db:5432/postgres
+    
+    # Indica que este servicio depende de que el contenedor de base de datos esté iniciado primero
+    depends_on:
+      - flask_db
+
+  # Servicio de base de datos PostgreSQL
+  flask_db:
+    # Nombre del contenedor
+    container_name: flask_db
+
+    # Imagen de PostgreSQL versión 12
+    image: postgres:12
+
+    # Mapeo de puertos: el puerto 5432 del host se enlaza al puerto 5432 del contenedor
+    ports:
+      - "5432:5432"
+
+    # Variables de entorno necesarias para inicializar PostgreSQL
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+
+    # Volumen persistente para mantener los datos de la base de datos fuera del contenedor
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+# Definición del volumen persistente para la base de datos
+volumes:
+  pgdata: {}
