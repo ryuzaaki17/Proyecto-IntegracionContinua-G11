@@ -1,0 +1,26 @@
+CREATE DATABASE IF NOT EXISTS sistema_reservas_poli;
+USE sistema_reservas_poli;
+
+-- Tabla de equipos
+CREATE TABLE equipos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL UNIQUE,
+  disponibles INT NOT NULL DEFAULT 0
+);
+
+-- Datos de ejemplo
+INSERT INTO equipos (nombre, disponibles) VALUES
+('Computador Portátil', 10),
+('Proyector 4K', 2),
+('Impresora 3D', 3),
+('Microscopio Digital', 1);
+
+-- Tabla de solicitudes
+CREATE TABLE solicitudes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL,
+  correo VARCHAR(100) NOT NULL,
+  telefono VARCHAR(20),
+  equipo VARCHAR(100) NOT NULL,
+  fecha DATETIME DEFAULT CURRENT_TIMESTAMP
+);
