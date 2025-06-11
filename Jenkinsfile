@@ -49,6 +49,7 @@ pipeline {
                         docker exec flask_app python3 -c "import psycopg2; conn = psycopg2.connect('${env.DB_URL}'); print('Conexión exitosa'); conn.close()"
                         """
                         // Aquí podrías agregar tus pruebas
+                        //prueba
                     }
                 }
             }
