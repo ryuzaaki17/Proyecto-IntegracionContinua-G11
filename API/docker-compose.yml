@@ -1,5 +1,3 @@
-# Versión del esquema de Docker Compose que se está utilizando
-version: "3.9"
 
 services:
   # Servicio de la aplicación Flask
